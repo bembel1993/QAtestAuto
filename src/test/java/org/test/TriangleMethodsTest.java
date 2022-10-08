@@ -2,13 +2,49 @@ package org.test;
 
 import junit.framework.TestCase;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.*;
+import org.junit.runners.Parameterized;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 
 import static org.junit.Assert.assertTrue;
 
+@RunWith(value = Parameterized.class)
 public class TriangleMethodsTest extends TestCase {
-    int a = 8;
-    int b = 10;
-    int c = 4;
+
+    private int a;
+    private int b;
+    private int c;
+    private IncrementTriangleMethodsTest itpt;
+
+    @Parameterized.Parameters
+    public static Collection set_of_parameters() {
+        return Arrays.asList(new Object[][]{
+                {3, 10, 10},
+                {8, 3, 5},
+                {8, 3, 5}});
+    }
+
+    public TriangleMethodsTest(int a, int b, int c) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+    }
+
+    @Before
+    public void setUp() {
+        itpt = new IncrementTriangleMethodsTest();
+    }
+
+    @Test
+    public void TriangleMethodsTest() {
+        assertEquals(a,itpt.equals(a));
+        assertEquals(b,itpt.equals(b));
+        assertEquals(c,itpt.equals(c));
+    }
 
     @Test
     public void testEqualateralOrIsosceles() {
@@ -23,6 +59,7 @@ public class TriangleMethodsTest extends TestCase {
             assertFalse(false);
         }
     }
+
     @Test
     public void testVersatile() {
         if (a == b || a == c || b == c) {
@@ -33,6 +70,7 @@ public class TriangleMethodsTest extends TestCase {
             assertTrue(true);
         }
     }
+
     @Test
     public void testNotExist() {
         if (a + b > c && a + c > b && b + c > a) {
@@ -42,8 +80,9 @@ public class TriangleMethodsTest extends TestCase {
         }
         assertTrue(true);
     }
+
     @Test
-    public void testVerification(){
+    public void testVerification() {
 
         if (a + b > c && a + c > b && b + c > a) {
             if (a == b || a == c || b == c) {
@@ -61,4 +100,6 @@ public class TriangleMethodsTest extends TestCase {
         assertTrue(true);
     }
 
+    private class IncrementTriangleMethodsTest {
+    }
 }
