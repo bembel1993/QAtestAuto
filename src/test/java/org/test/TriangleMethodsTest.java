@@ -11,7 +11,7 @@ public class TriangleMethodsTest extends TestCase {
     private TriangleMethods triangleMethods = new TriangleMethods();
 
     @DataProvider
-    public Object[][] isTriangleEquilateralTestData() {
+    public Object[][] isTriangleEquilateral() {
         return new Object[][]{
                 {triangleMethods.sedSide(8, 10, 4).equalateralOrIsosceles(), false},
                 {triangleMethods.sedSide(8, 10, 7).equalateralOrIsosceles(), false},
@@ -20,12 +20,37 @@ public class TriangleMethodsTest extends TestCase {
         };
     }
 
+    @DataProvider
+    public Object[][] isTriangleVersatile() {
+        return new Object[][]{
+                {triangleMethods.sedSide(8, 10, 4).versatile(), false},
+                {triangleMethods.sedSide(10, 10, 10).versatile(), true},
+                {triangleMethods.sedSide(8, 8, 5).versatile(), true},
+        };
+    }
 
+    @DataProvider
+    public Object[][] isTriangleNotExists() {
+        return new Object[][]{
+                {triangleMethods.sedSide(8, 10, 4).notExist(), true},
+                {triangleMethods.sedSide(10, 10, 10).notExist(), true},
+                {triangleMethods.sedSide(5, 5, 5).notExist(), true},
+        };
+    }
 
     
-    @Test(dataProvider = "isTriangleEquilateralTestData")
-    public void testTriangleIsosceles(boolean actualResult, boolean expectedResult) {
+    @Test(dataProvider = "isTriangleEquilateral")
+    public void testTriangleEquilateral(boolean actualResult, boolean expectedResult) {
         Assert.assertEquals(actualResult, expectedResult);
     }
 
+    @Test(dataProvider = "isTriangleVersatile")
+    public void testTriangleVersatile(boolean actualResult, boolean expectedResult) {
+        Assert.assertEquals(actualResult, expectedResult);
+    }
+
+    @Test(dataProvider = "isTriangleNotExists")
+    public void testTriangleNotExists(boolean actualResult, boolean expectedResult) {
+        Assert.assertEquals(actualResult, expectedResult);
+    }
 }

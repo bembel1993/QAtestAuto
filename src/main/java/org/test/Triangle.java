@@ -57,8 +57,8 @@ public class Triangle {
 
         if (sA == a && sB == b && sC == c) {
             //Вызов методов проверки
-            if (triangle.notExist(a, b, c)) {
-                if (triangle.versatile(a, b, c)) {
+            if (triangle.notExist()) {
+                if (triangle.versatile()) {
                     if (triangle.equalateralOrIsosceles()) {
                     }
                 }

@@ -5,7 +5,7 @@ public class TriangleMethods {
     private int b;
     private int c;
 
-    public TriangleMethods(int a, int b, int c){
+    public TriangleMethods(int a, int b, int c) {
         this.a = a;
         this.b = b;
         this.c = c;
@@ -34,7 +34,8 @@ public class TriangleMethods {
         return (a == b && a == c && b == c);
     }
 
-    public boolean versatile(int a, int b, int c) {
+
+    public boolean versatile() {
         if (a == b || a == c || b == c) {
             System.out.println("Methode versatile not use");
         } else {
@@ -43,7 +44,7 @@ public class TriangleMethods {
         return (a == b || a == c || b == c);
     }
 
-    public boolean notExist(int a, int b, int c) {
+    public boolean notExist() {
         if (a + b > c && a + c > b && b + c > a) {
             System.out.println("Methode notExist not use");
         } else {
