@@ -14,6 +14,13 @@ public class TriangleMethods {
     public TriangleMethods() {
     }
 
+    public TriangleMethods sedSide(int a, int b, int c) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+        return this;
+    }
+
     @Override
     public String toString() {
         return "TriangleMethods{" +
@@ -23,13 +30,8 @@ public class TriangleMethods {
                 '}';
     }
 
-    public boolean equalateralOrIsosceles(int a, int b, int c) {
-        if (a == b && a == c && b == c) {
-            System.out.println("Triangle is equilateral (равносторонний)");
-        } else if (a == b || a == c || b == c) {
-            System.out.println("Triangle isosceles (равнобедренный)");
-        }
-        return true;
+    public boolean equalateralOrIsosceles() {
+        return (a == b && a == c && b == c);
     }
 
     public boolean versatile(int a, int b, int c) {
@@ -38,7 +40,7 @@ public class TriangleMethods {
         } else {
             System.out.println("Triangle versatile (разносторонний)");
         }
-        return true;
+        return (a == b || a == c || b == c);
     }
 
     public boolean notExist(int a, int b, int c) {
@@ -47,6 +49,23 @@ public class TriangleMethods {
         } else {
             System.out.println("Triangle does not exist");
         }
-        return true;
+        return (a + b > c && a + c > b && b + c > a);
+    }
+
+    public void verification(int a, int b, int c) {
+
+        if (a + b > c && a + c > b && b + c > a) {
+            if (a == b || a == c || b == c) {
+                if (a == b && a == c && b == c) {
+                    System.out.println("Triangle is equilateral (равносоторнний)");
+                } else {
+                    System.out.println("Triangle isosceles (равнобедренный)");
+                }
+            } else {
+                System.out.println("Triangle versatile (разносторонний)");
+            }
+        } else {
+            System.out.println("Triangle does not exist (не существует)");
+        }
     }
 }

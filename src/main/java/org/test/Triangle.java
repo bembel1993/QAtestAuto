@@ -59,7 +59,7 @@ public class Triangle {
             //Вызов методов проверки
             if (triangle.notExist(a, b, c)) {
                 if (triangle.versatile(a, b, c)) {
-                    if (triangle.equalateralOrIsosceles(a, b, c)) {
+                    if (triangle.equalateralOrIsosceles()) {
                     }
                 }
             }
